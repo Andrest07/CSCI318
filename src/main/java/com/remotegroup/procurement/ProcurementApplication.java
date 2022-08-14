@@ -1,13 +1,13 @@
-package com.remotegroup.part_a;
+package com.remotegroup.procurement;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class RemoteGroupPartAApplication {
+public class ProcurementApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(RemoteGroupPartAApplication.class, args);
+		SpringApplication.run(ProcurementApplication.class, args);
 	}
 
 }
