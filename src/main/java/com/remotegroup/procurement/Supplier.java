@@ -10,7 +10,7 @@ public class Supplier {
 	String companyName;
 	String base;
 	
-	Supplier(String i, String cN, String b){
+	Supplier(Long i, String cN, String b){
 		id = i;
 		companyName = cN;
 		base = b;
@@ -24,7 +24,7 @@ public class Supplier {
 		return base;
 	}
 	
-	public String getSupplierId() {
+	public Long getSupplierId() {
 		return id;
 	}
 	
@@ -36,7 +36,7 @@ public class Supplier {
 		this.base = b;
 	}
 	
-	public void setId(string newId) {
+	public void setId(Long newId) {
 		this.id = newId;
 	}
 }
