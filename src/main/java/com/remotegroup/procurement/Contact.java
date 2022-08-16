@@ -18,6 +18,9 @@ public class Contact /*extends Supplier?*/ {
         email = e;
         position = po;
     }
+    public Long getId(){
+        return this.id;
+    }
     public String getName(){
         return name;
     }
