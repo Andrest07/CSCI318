@@ -15,7 +15,7 @@ class LoadDatabase {
   CommandLineRunner initDatabase(ContactRepository repository) {
 
     return args -> {
-      log.info("Preloading " + repository.save(new Contact("Jim Davis", "0408459354", "jim@email.com", "Wollongong")));
+      log.info("Preloading " + repository.save(new Contact("Jim Davis", "0408459354", "jim@email.com", "Executive")));
     };
   }
 }
