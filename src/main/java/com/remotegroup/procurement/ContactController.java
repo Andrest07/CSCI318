@@ -24,12 +24,22 @@ public class ContactController {
 	}
 	
 	//use case: update contact
-	/*
 	@PutMapping("/contact/{id}")
-	Contact updateContact(@RequestBody newContact, @PathVariable Long id) {
-		//awaiting integration
+	Contact replaceContact(@RequestBody Contact newContact, @PathVariable Long id) {
+		return repository.findById(id)
+      	.map(Contact -> {
+			Contact.setName(newContact.getName());
+			Contact.setPhone(newContact.getPhone());
+			Contact.setEmail(newContact.getEmail());
+			Contact.setPosition(newContact.getPosition());
+        return repository.save(Contact);
+      })
+      	.orElseGet(() -> {
+        	newContact.setId(id);
+        	return repository.save(newContact);
+      });
 	}
-	*/
+	
 	
 	//use case: delete contact
 	@DeleteMapping("/contact/{id}")
