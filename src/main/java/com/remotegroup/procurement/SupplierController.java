@@ -1,7 +1,7 @@
 package com.remotegroup.procurement;
 
-import java.util.function.Function;
 import java.util.List;
+import java.util.function.Function;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,7 +11,10 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @RestController
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
 public class SupplierController {
 	
 	private final SupplierRepository repository;
@@ -19,11 +22,12 @@ public class SupplierController {
 		this.repository = repository;
 	}
 	
+	//use case: get all suppliers.
 	@GetMapping("/suppliers")
 	List<Supplier> all() {
 	  return repository.findAll();
 	}
-
+	
 	//use case: create supplier
 	@PostMapping("/supplier")
 	Supplier newSupplier(@RequestBody Supplier supplier) {
@@ -55,7 +59,9 @@ public class SupplierController {
 	@GetMapping("/supplier/{id}")
 	Supplier getSupplierById(@PathVariable Long id) {
 		try {
-			return repository.getReferenceById(id);
+			//return repository.getReferenceById(id); This function lazy loads and causes errors, so changed to below
+			return repository.findById(id).get();
+			
 		}catch(Exception e) {
 			throw new SupplierNotFoundException(id);
 		}
