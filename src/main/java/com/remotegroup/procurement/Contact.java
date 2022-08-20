@@ -2,9 +2,11 @@ package com.remotegroup.procurement;
 
 import java.util.Objects;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+@Entity
 public class Contact {
     private @Id @GeneratedValue Long id;
     String name;

@@ -12,7 +12,7 @@ class ContactModelAssembler implements RepresentationModelAssembler<Contact, Ent
   @Override
   public EntityModel<Contact> toModel(Contact contact) {
 
-    return EntityModel.of(contact, //
+    return EntityModel.of(contact,
         linkTo(methodOn(ContactController.class).one(contact.getId())).withSelfRel(),
         linkTo(methodOn(ContactController.class).all()).withRel("contacts"));
   }
