@@ -7,12 +7,14 @@ import javax.persistence.Id;
 
 public class Contact {
     private @Id @GeneratedValue Long id;
+    Long supplierId;
     String name;
     String phone;
     String email;
     String position;
 
-    Contact(String n, String p, String e, String po){
+    Contact(Long i, String n, String p, String e, String po){
+        supplierId = i;
         name = n;
         phone = p;
         email = e;
@@ -20,6 +22,10 @@ public class Contact {
     }
     public Long getId(){
         return this.id;
+    }
+
+    public Long getSupplierId(){
+        return this.supplierId;
     }
 
     public String getName(){
@@ -40,6 +46,10 @@ public class Contact {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public void setSupplierId(Long id) {
+        this.supplierId = id;
     }
 
     public void setName(String newName){
@@ -66,6 +76,7 @@ public class Contact {
             return false;
             Contact contact = (Contact) o;
         return Objects.equals(this.id, contact.id) 
+        && Objects.equals(this.supplierId, contact.supplierId)
         && Objects.equals(this.name, contact.name)
         && Objects.equals(this.phone, contact.phone) 
         && Objects.equals(this.email, contact.email)
@@ -74,13 +85,14 @@ public class Contact {
 
     @Override
     public int hashCode() {
-        return Objects.hash(this.id, this.name, this.phone, this.email, this.position);
+        return Objects.hash(this.id, this.supplierId, this.name, this.phone, this.email, this.position);
     }
 
     @Override
     public String toString() {
         return "Contact{" + "id=" + this.id + '\''
-         + ", name='" + this.name + '\''
+        + ", supplier id='" + this.supplierId + '\'' 
+        + ", name='" + this.name + '\''
          + ", phone='" + this.phone + '\''
          + ", email='" + this.email + '\'' 
          + ", position='" + this.position + '\'' 

@@ -23,7 +23,8 @@ class LoadDatabase {
   CommandLineRunner initDatabase(ContactRepository cRepository) {
 
     return args -> {
-      log.info("Preloading " + cRepository.save(new Contact("Jim Davis", "0408459354", "jim@email.com", "Executive")));
+      //NEED to get supplierID somehow
+      log.info("Preloading " + cRepository.save(new Contact(0L, "Jim Davis", "0408459354", "jim@email.com", "Executive")));
     };
   }
 }
