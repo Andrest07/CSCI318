@@ -11,6 +11,8 @@ public class Supplier {
 	private @Id @GeneratedValue Long id;
 	String companyName;
 	String base;
+
+	Supplier (){}
 	
 	Supplier(String cN, String b){
 		companyName = cN;

@@ -15,6 +15,8 @@ public class Contact {
     String email;
     String position;
 
+    Contact () {}
+
     Contact(Long i, String n, String p, String e, String po){
         supplierId = i;
         name = n;
