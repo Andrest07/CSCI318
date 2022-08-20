@@ -51,6 +51,7 @@ public class ContactController {
 	Contact replaceContact(@RequestBody Contact newContact, @PathVariable Long id) {
 		return repository.findById(id)
       	.map(Contact -> {
+			Contact.setSupplierId(newContact.getSupplierId());
 			Contact.setName(newContact.getName());
 			Contact.setPhone(newContact.getPhone());
 			Contact.setEmail(newContact.getEmail());
