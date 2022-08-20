@@ -1,6 +1,7 @@
 package com.remotegroup.procurement;
 
 import java.util.function.Function;
+import java.util.List;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +19,11 @@ public class SupplierController {
 		this.repository = repository;
 	}
 	
+	@GetMapping("/suppliers")
+	List<Supplier> all() {
+	  return repository.findAll();
+	}
+
 	//use case: create supplier
 	@PostMapping("/supplier")
 	Supplier newSupplier(@RequestBody Supplier supplier) {
