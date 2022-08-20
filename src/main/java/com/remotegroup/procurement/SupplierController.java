@@ -25,10 +25,19 @@ public class SupplierController {
 	}
 	
 	//use case: update supplier
-	/*@PutMapping("/supplier/{id}")
-	Supplier updateSupplier(@RequestBody Supplier newSupplier, @PathVariable Long id) {
-		//Awaiting integration
-	}*/
+	@PutMapping("/supplier/{id}")
+	Supplier replaceSupplier(@RequestBody Supplier newSupplier, @PathVariable Long id) {
+		return repository.findById(id)
+      	.map(Supplier -> {
+			Supplier.setCompanyName(newSupplier.getCompanyName());
+			Supplier.setBase(newSupplier.getBase());
+        return repository.save(Supplier);
+      })
+      	.orElseGet(() -> {
+        	newSupplier.setId(id);
+        	return repository.save(newSupplier);
+      });
+	}
 	
 	//use case: delete supplier
 	@DeleteMapping("/supplier/{id}")

@@ -5,7 +5,7 @@ import java.util.Objects;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-public class Contact /*extends Supplier?*/ {
+public class Contact {
     private @Id @GeneratedValue Long id;
     String name;
     String phone;
@@ -21,6 +21,7 @@ public class Contact /*extends Supplier?*/ {
     public Long getId(){
         return this.id;
     }
+
     public String getName(){
         return name;
     }

@@ -71,14 +71,14 @@ public class ContactController {
 	}
 	
 	//use case: get contact by id
-	// @GetMapping("/contact/{id}")
-	// Contact getContactById(@PathVariable Long id) {
-	// 	try {
-	// 		return repository.getReferenceById(id);
-	// 	}catch(Exception e) {
-	// 		throw new ContactNotFoundException(id);
-	// 	}
-	// }
+	@GetMapping("/contact/{id}")
+	Contact getContactById(@PathVariable Long id) {
+	 	try {
+	 		return repository.getReferenceById(id);
+	 	}catch(Exception e) {
+	 		throw new ContactNotFoundException(id);
+	 	}
+	}
 
 	@GetMapping("/contacts/{id}")
 	EntityModel<Contact> one(@PathVariable Long id) {

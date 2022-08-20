@@ -10,8 +10,7 @@ public class Supplier {
 	String companyName;
 	String base;
 	
-	Supplier(Long i, String cN, String b){
-		id = i;
+	Supplier(String cN, String b){
 		companyName = cN;
 		base = b;
 	}
@@ -39,4 +38,29 @@ public class Supplier {
 	public void setId(Long newId) {
 		this.id = newId;
 	}
+
+	@Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (!(o instanceof Supplier))
+            return false;
+            Supplier supplier = (Supplier) o;
+        return Objects.equals(this.id, supplier.id) 
+        && Objects.equals(this.companyName, supplier.companyName)
+        && Objects.equals(this.base, supplier.base);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(this.id, this.companyName, this.base);
+    }
+
+    @Override
+    public String toString() {
+        return "Contact{" + "id=" + this.id + '\''
+         + ", name='" + this.companyName + '\''
+         + ", base='" + this.base + '\''
+         + '}';
+    }
 }
