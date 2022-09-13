@@ -30,7 +30,7 @@ public class ProductController {
 	
 	//use case: create product
 	@PostMapping("/product")
-	Product new{art(@RequestBody Product product) {
+	Product newProduct(@RequestBody Product product) {
 		return repository.save(product);
 	}
 	

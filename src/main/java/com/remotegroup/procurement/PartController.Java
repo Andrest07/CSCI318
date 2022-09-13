@@ -30,10 +30,11 @@ public class PartController {
 	
 	//use case: create part
 	@PostMapping("/part")
-	Part new{art(@RequestBody Part part) {
+	Part newPart(@RequestBody Part part) {
 		return repository.save(part);
 	}
 	
+
 	//use case: update part
 	@PutMapping("/part/{id}")
 	Part replacePart(@RequestBody Part newPart, @PathVariable Long id) {

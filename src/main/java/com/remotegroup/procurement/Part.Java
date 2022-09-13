@@ -63,7 +63,7 @@ public class Part {
     }
 
     @Override
-    public boolean equals(Part o) {
+    public boolean equals(Object o) {
         if (this == o)
             return true;
         if (!(o instanceof Part))
