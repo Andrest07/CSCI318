@@ -1,4 +1,4 @@
-package com.remotegroup.procurement;
+package com.remotegroup.sales;
 
 public class OnlineSaleNotFoundException extends RuntimeException {
 	OnlineSaleNotFoundException(Long id){

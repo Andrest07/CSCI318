@@ -1,4 +1,4 @@
-package com.remotegroup.procurement;
+package com.remotegroup.inventory;
 
 import java.util.Objects;
 

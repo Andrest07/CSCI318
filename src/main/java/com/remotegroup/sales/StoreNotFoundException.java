@@ -1,4 +1,4 @@
-package com.remotegroup.procurement;
+package com.remotegroup.sales;
 
 public class StoreNotFoundException extends RuntimeException {
 	StoreNotFoundException(Long id){

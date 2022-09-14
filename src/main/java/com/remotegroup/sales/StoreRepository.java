@@ -1,4 +1,4 @@
-package com.remotegroup.procurement;
+package com.remotegroup.sales;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

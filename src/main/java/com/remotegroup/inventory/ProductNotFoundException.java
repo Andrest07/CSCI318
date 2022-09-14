@@ -1,4 +1,4 @@
-package com.remotegroup.procurement;
+package com.remotegroup.inventory;
 
 public class ProductNotFoundException extends RuntimeException {
 	ProductNotFoundException(Long id){
