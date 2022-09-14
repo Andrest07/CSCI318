@@ -9,7 +9,7 @@ import javax.persistence.Id;
 @Entity
 public class Part {
     private @Id @GeneratedValue Long id;
-    Long supplierId;
+    long supplierId;
     Long productId;
     String name;
     String description;
@@ -62,7 +62,6 @@ public class Part {
         this.description = newDescription;
     }
 
-    @Override
     public boolean equals(Part o) {
         if (this == o)
             return true;
