@@ -7,7 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class InStoreSale {
+public class InStoreSale extends Sale {
     private @Id @GeneratedValue Long id;
     Long storeId;
     String receipt;

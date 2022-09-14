@@ -7,7 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class OnlineSale {
+public class OnlineSale extends Sale {
     private @Id @GeneratedValue Long id;
     String CustomerName;
     String address;
