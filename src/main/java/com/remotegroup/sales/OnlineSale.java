@@ -8,38 +8,29 @@ import javax.persistence.Id;
 
 @Entity
 public class OnlineSale extends Sale {
-    private @Id @GeneratedValue Long id;
-    String CustomerName;
+    String customerName;
     String address;
 
-    OnlineSale () {}
+    OnlineSale () {
+    	super();
+    }
 
     OnlineSale(String c, String n){
-        CustomerName = c;
+    	super();
+        customerName = c;
         address = n;
-    }
-    public Long getId(){
-        return this.id;
     }
 
     public String getCustomerName(){
-        return this.CustomerName;
-    }
-
-    public String getSaleId(){
-        return this.CustomerName;
+        return this.customerName;
     }
 
     public String getAddress(){
         return address;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public void setCustomerName(String newCustomerName) {
-        this.CustomerName = newCustomerName;
+        this.customerName = newCustomerName;
     }
 
     public void setAddress(String newAddress){
@@ -54,19 +45,19 @@ public class OnlineSale extends Sale {
             return false;
             OnlineSale OnlineSale = (OnlineSale) o;
         return Objects.equals(this.id, OnlineSale.id) 
-        && Objects.equals(this.CustomerName, OnlineSale.CustomerName)
+        && Objects.equals(this.customerName, OnlineSale.customerName)
         && Objects.equals(this.address, OnlineSale.address);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(this.id, this.CustomerName, this.address);
+        return Objects.hash(this.id, this.customerName, this.address);
     }
 
     @Override
     public String toString() {
         return "OnlineSale{" + "id=" + this.id + '\''
-        + ", CustomerName id='" + this.CustomerName + '\'' 
+        + ", CustomerName id='" + this.customerName + '\'' 
         + ", address='" + this.address + '\''
          + '}';
     }

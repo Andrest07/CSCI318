@@ -8,7 +8,7 @@ import javax.persistence.Id;
 
 @Entity
 public class Sale {
-    private @Id @GeneratedValue Long id;
+    protected @Id @GeneratedValue Long id;
     Long productId;
     Long InStoreSaleId;
     Long OnlineSaleId;

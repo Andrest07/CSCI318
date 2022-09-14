@@ -8,34 +8,25 @@ import javax.persistence.Id;
 
 @Entity
 public class InStoreSale extends Sale {
-    private @Id @GeneratedValue Long id;
     Long storeId;
-    String receipt;
+    String receiptNo;
 
-    InStoreSale () {}
+    InStoreSale () {
+    	super();
+    }
 
     InStoreSale(Long i, String n){
+    	super();
         storeId = i;
-        receipt = n;
-    }
-    public Long getId(){
-        return this.id;
+        receiptNo = n;
     }
 
     public Long getStoreId(){
         return this.storeId;
     }
 
-    public Long getSaleId(){
-        return this.storeId;
-    }
-
-    public String getReceipt(){
-        return receipt;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+    public String getReceiptNo(){
+        return receiptNo;
     }
 
     public void setStoreId(Long id) {
@@ -43,7 +34,7 @@ public class InStoreSale extends Sale {
     }
 
     public void setReceipt(String newReceipt){
-        this.receipt = newReceipt;
+        this.receiptNo = newReceipt;
     }
 
     @Override
@@ -55,19 +46,19 @@ public class InStoreSale extends Sale {
             InStoreSale InStoreSale = (InStoreSale) o;
         return Objects.equals(this.id, InStoreSale.id) 
         && Objects.equals(this.storeId, InStoreSale.storeId)
-        && Objects.equals(this.receipt, InStoreSale.receipt);
+        && Objects.equals(this.receiptNo, InStoreSale.receiptNo);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(this.id, this.storeId, this.receipt);
+        return Objects.hash(this.id, this.storeId, this.receiptNo);
     }
 
     @Override
     public String toString() {
         return "InStoreSale{" + "id=" + this.id + '\''
         + ", store id='" + this.storeId + '\'' 
-        + ", receipt='" + this.receipt + '\''
+        + ", receipt='" + this.receiptNo + '\''
          + '}';
     }
 }

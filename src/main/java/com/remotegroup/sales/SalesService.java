@@ -11,5 +11,4 @@ public interface SalesService {
 	public abstract Sale getSale(Long id);
 	public abstract void delteSale(Long id);
 	
-	//expose Sale
 }
