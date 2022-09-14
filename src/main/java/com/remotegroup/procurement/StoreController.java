@@ -15,58 +15,55 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @RestController
 @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
-public class PartController {
+public class StoreController {
 	
-	private final PartRepository repository;
-	PartController(PartRepository repository){
+	private final StoreRepository repository;
+	StoreController(StoreRepository repository){
 		this.repository = repository;
 	}
 	
-	//use case: get all parts.
-	@GetMapping("/parts")
-	List<Part> all() {
+	//use case: get all stores.
+	@GetMapping("/stores")
+	List<Store> all() {
 	  return repository.findAll();
 	}
 	
-	//use case: create part
-	@PostMapping("/part")
-	Part newPart(@RequestBody Part part) {
-		return repository.save(part);
+	//use case: create store
+	@PostMapping("/store")
+	Store newStore(@RequestBody Store store) {
+		return repository.save(store);
 	}
 	
-
-	//use case: update part
-	@PutMapping("/part/{id}")
-	Part replacePart(@RequestBody Part newPart, @PathVariable Long id) {
+	//use case: update store
+	@PutMapping("/store/{id}")
+	Store replaceStore(@RequestBody Store newStore, @PathVariable Long id) {
 		return repository.findById(id)
-      	.map(Part -> {
-			Part.setSupplierId(newPart.getSupplierId());
-			Part.setProductId(newPart.getProductId());
-            Part.setName(newPart.getName());
-            Part.setDescription(newPart.getDescription());
-        return repository.save(Part);
+      	.map(Store -> {
+			Store.setAddress(newStore.getAddress());
+			Store.setManager(newStore.getManager());
+        return repository.save(Store);
       })
       	.orElseGet(() -> {
-        	newPart.setId(id);
-        	return repository.save(newPart);
+        	newStore.setId(id);
+        	return repository.save(newStore);
       });
 	}
 	
-	//use case: delete part
-	@DeleteMapping("/part/{id}")
-	void deletePart(@PathVariable Long id) {
+	//use case: delete store
+	@DeleteMapping("/store/{id}")
+	void deleteStore(@PathVariable Long id) {
 		repository.deleteById(id);
 	}
 	
-	//use case: get part by id
-	@GetMapping("/part/{id}")
-	Part getPartById(@PathVariable Long id) {
+	//use case: get store by id
+	@GetMapping("/store/{id}")
+	Store getStoreById(@PathVariable Long id) {
 		try {
 			//return repository.getReferenceById(id); This function lazy loads and causes errors, so changed to below
 			return repository.findById(id).get();
 			
 		}catch(Exception e) {
-			throw new PartNotFoundException(id);
+			throw new StoreNotFoundException(id);
 		}
 	}
 	
