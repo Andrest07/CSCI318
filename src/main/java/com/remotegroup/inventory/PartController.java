@@ -69,5 +69,12 @@ public class PartController {
 			throw new PartNotFoundException(id);
 		}
 	}
+
+	//use case: look up supplier by part
+	@GetMapping("/part/{id}")
+	Long getPartSupplier(@PathVariable Long id) {
+		Part chosenPart = repository.findById(id).orElseThrow(RuntimeException::new);
+		return chosenPart.getSupplierId();
+	}
 	
 }

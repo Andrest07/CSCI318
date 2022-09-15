@@ -9,7 +9,7 @@ import javax.persistence.Id;
 @Entity
 public class Part {
     private @Id @GeneratedValue Long id;
-    long supplierId;
+    Long supplierId;
     Long productId;
     String name;
     String description;
