@@ -23,4 +23,9 @@ public interface SaleService {
 	public abstract OnlineSale updateSale(OnlineSale s, Long id);
 	public abstract OnlineSale getOnlineSale(Long id);
 	public abstract void deleteOnlineSale(Long id);
+	
+	public abstract List<BackOrderSale> getBackOrderSales();
+	public abstract BackOrderSale createBackOrderSale(BackOrderSale s);
+	public abstract void deleteBackOrderSale(Long id);
+	public abstract BackOrderSale getBackOrderSale(Long id) throws BackOrderSaleNotFoundException;
 }

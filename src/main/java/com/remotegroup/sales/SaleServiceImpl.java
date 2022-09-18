@@ -13,12 +13,14 @@ public class SaleServiceImpl implements SaleService{
 	private final SaleRepository saleRepository;
 	private final InStoreSaleRepository inStoreSaleRepository;
 	private final OnlineSaleRepository onlineSaleRepository;
+	private final BackOrderSaleRepository backOrderSaleRepository;
 	private final RestTemplate restTemplate;
 	
-	SaleServiceImpl(SaleRepository saleRepository, InStoreSaleRepository i, OnlineSaleRepository o, RestTemplateBuilder restTemplateBuilder){
+	SaleServiceImpl(SaleRepository saleRepository, InStoreSaleRepository i, OnlineSaleRepository o, BackOrderSaleRepository b, RestTemplateBuilder restTemplateBuilder){
 		this.saleRepository = saleRepository;
 		this.inStoreSaleRepository = i;
 		this.onlineSaleRepository = o;
+		this.backOrderSaleRepository = b;
 		this.restTemplate = restTemplateBuilder.build();
 	}
 	
@@ -156,5 +158,32 @@ public class SaleServiceImpl implements SaleService{
 	public void deleteOnlineSale(Long id) {
 		onlineSaleRepository.deleteById(id);
 		
+	}
+
+	@Override
+	public List<BackOrderSale> getBackOrderSales() {
+		  return backOrderSaleRepository.findAll();
+	}
+
+	@Override
+	public BackOrderSale createBackOrderSale(BackOrderSale s) {
+		return backOrderSaleRepository.save(s);
+	}
+
+	@Override
+	public void deleteBackOrderSale(Long id) {
+		backOrderSaleRepository.deleteById(id);
+		
+	}
+
+	@Override
+	public BackOrderSale getBackOrderSale(Long id) throws BackOrderSaleNotFoundException {
+		try {
+			//return repository.getReferenceById(id); This function lazy loads and causes errors, so changed to below
+			return backOrderSaleRepository.findById(id).get();
+			
+		}catch(Exception e) {
+			throw new BackOrderSaleNotFoundException();
+		}
 	}
 }
