@@ -12,15 +12,17 @@ public class Product {
     String name;
     double price;
     String comment;
-    Long[][] comprisingParts; // part_id, number
-
+    Long[][] comprisingParts; // [][0] = part_id, [][1] = quantity  NOTE: MUST be >= 1 Part with number >= 1
+    int stockQuantity;
+    
     Product () {}
 
-    Product(Long i, String n, double p, String c, Long[][] comprisingParts){
+    Product(Long i, String n, double p, String c, Long[][] comprisingParts, int s){
         name = n;
         price = p;
         comment = c;
         this.comprisingParts = comprisingParts.clone();
+        stockQuantity = s;
     }
 
     public Long getId(){
@@ -38,6 +40,14 @@ public class Product {
     public String getComment(){
         return comment;
     }
+    
+    public Long[][] getComprisingParts() {
+    	return this.comprisingParts;
+    }
+    
+    public int getStockQuantity() {
+    	return this.stockQuantity;
+    }
 
     public void setId(Long id) {
         this.id = id;
@@ -53,6 +63,14 @@ public class Product {
 
     public void setComment(String newComment){
         this.comment = newComment;
+    }
+    
+    public void setComprisingParts(Long[][] cp) {
+    	this.comprisingParts = cp.clone();
+    }
+    
+    public void setStockQuantity(int s) {
+    	this.stockQuantity = s;
     }
 
     @Override

@@ -2,15 +2,20 @@ package com.remotegroup.sales;
 
 import java.util.List;
 
+import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 @Service
 public class SalesServiceImpl implements SalesService{
 
 
 	private final SaleRepository repository;
-	SalesServiceImpl(SaleRepository repository){
+	private final RestTemplate restTemplate;
+	
+	SalesServiceImpl(SaleRepository repository, RestTemplateBuilder restTemplateBuilder){
 		this.repository = repository;
+		this.restTemplate = restTemplateBuilder.build();
 	}
 	
 	@Override
@@ -55,4 +60,10 @@ public class SalesServiceImpl implements SalesService{
 		repository.deleteById(id);
 	}
 	
+	// Communicate with Inventory Service via REST
+	@Override
+	public boolean requestCheckInventory(Long itemId){
+		String url = "localhost:8080/product/check/"+itemId;
+		return this.restTemplate.getForObject(url, boolean.class);
+	}
 }

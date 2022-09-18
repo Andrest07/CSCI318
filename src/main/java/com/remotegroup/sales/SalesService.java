@@ -10,5 +10,6 @@ public interface SalesService {
 	public abstract Sale updateSale(Sale s, Long id);
 	public abstract Sale getSale(Long id);
 	public abstract void deleteSale(Long id);
+	public abstract boolean requestCheckInventory(Long itemId);
 	
 }

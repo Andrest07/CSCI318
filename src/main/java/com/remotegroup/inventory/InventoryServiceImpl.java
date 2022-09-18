@@ -110,7 +110,26 @@ public class InventoryServiceImpl implements InventoryService{
 	}
 
 	@Override
-	public int checkInventory(Long productId) {
-		return 1;
+	public boolean checkInventory(Long itemId) {
+		try {
+			Product p = getProduct(itemId);
+			if(p.getStockQuantity() > 0) {
+				return true;
+			}else {
+				//check for all parts
+				Long[][] parts = p.getComprisingParts();
+				for(int c=0; c<parts.length;c++) {
+					Long partId = parts[c][0];
+					Long quantity = parts[c][1];
+					Part part = getPart(partId);
+					if(part.getStockQuantity() < quantity) {
+						return false;
+					}
+				}
+				return true;
+			}
+		}catch(Exception e) {
+			return false;
+		}
 	}
 }

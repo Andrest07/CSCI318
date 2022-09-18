@@ -16,5 +16,5 @@ public interface InventoryService {
 	public abstract Part getPart(Long id);
 	public abstract Long getPartSupplier(Long id);
 	
-	public abstract int checkInventory(Long productId);
+	public abstract boolean checkInventory(Long itemId);
 }

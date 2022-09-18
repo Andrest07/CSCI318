@@ -13,14 +13,16 @@ public class Part {
     Long productId;
     String name;
     String description;
+    int stockQuantity;
 
     Part () {}
 
-    Part(Long i, Long p, String n, String d){
+    Part(Long i, Long p, String n, String d, int s){
         supplierId = i;
         productId = p;
         name = n;
         description = d;
+        stockQuantity = s;
     }
     public Long getId(){
         return this.id;
@@ -42,6 +44,10 @@ public class Part {
         return description;
     }
 
+    public int getStockQuantity() {
+    	return this.stockQuantity;
+    }
+    
     public void setId(Long id) {
         this.id = id;
     }
@@ -60,6 +66,10 @@ public class Part {
 
     public void setDescription(String newDescription){
         this.description = newDescription;
+    }
+    
+    public void setStockQuantity(int s) {
+    	this.stockQuantity = s;
     }
 
     public boolean equals(Part o) {

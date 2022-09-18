@@ -51,4 +51,9 @@ public class ProductController {
 		return inventoryService.getProduct(id);
 	}
 	
+	@GetMapping("/product/check/{id}")
+	boolean checkInventory(@PathVariable Long itemId) {
+		return inventoryService.checkInventory(itemId);
+	}
+	
 }
