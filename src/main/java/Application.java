@@ -21,8 +21,29 @@ import org.springframework.kafka.support.converter.RecordMessageConverter;
 @SpringBootApplication
 public class Application {
 
-	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
+	private final Logger LOGGER = LoggerFactory.getLogger(Application.class);
+
+	private final static CountDownLatch LATCH = new CountDownLatch(1);
+
+	public static void main(String[] args) throws InterruptedException {
+		ConfigurableApplicationContext context = SpringApplication.run(Application.class, args);
+		LATCH.await();
+		Thread.sleep(5_000);
+		context.close();
 	}
+
+	@Bean
+	public RecordMessageConverter converter() {
+		return new JsonMessageConverter();
+	}
+
+	@Bean
+	public BatchMessagingMessageConverter batchConverter() {
+		return new BatchMessagingMessageConverter(converter());
+	}
+
+	@Autowired
+	private KafkaTemplate<String, String> kafkaTemplate;
+
 
 }
