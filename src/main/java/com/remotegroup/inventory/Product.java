@@ -12,13 +12,15 @@ public class Product {
     String name;
     double price;
     String comment;
+    Long[][] comprisingParts; // part_id, number
 
     Product () {}
 
-    Product(Long i, String n, double p, String c){
+    Product(Long i, String n, double p, String c, Long[][] comprisingParts){
         name = n;
         price = p;
         comment = c;
+        this.comprisingParts = comprisingParts.clone();
     }
 
     public Long getId(){

@@ -8,19 +8,22 @@ import javax.persistence.Id;
 
 @Entity
 public class Sale {
+
     protected @Id @GeneratedValue Long id;
     Long itemId;
     String itemName;
+    String itemType; //product or part
     Integer quantity;
     String DataTime;
 
     Sale () {}
 
-    Sale(Long p, Long i,  Long os, String pn, Integer q, String dt){
+    Sale(Long p, Long i,  Long os, String pn, Integer q, String t, String dt){
         itemId = p;
         itemName = pn;
         quantity = q;
         DataTime = dt;
+        itemType = t;
     }
     public Long getId(){
         return this.id;
