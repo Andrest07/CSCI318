@@ -1,7 +1,6 @@
 package com.remotegroup.inventory;
 
 import java.util.List;
-import java.util.function.Function;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -56,6 +55,12 @@ public class PartController {
 	@GetMapping("/part/{id}")
 	Long getPartSupplier(@PathVariable Long id) {
 		return inventoryService.getPartSupplier(id);
+	}
+
+	//use case: Look up all parts by product
+	@GetMapping("/product/parts/{id}")
+	List<Part> getPartByProduct(@PathVariable Long id){
+		return inventoryService.getPartByProduct(id);
 	}
 	
 }

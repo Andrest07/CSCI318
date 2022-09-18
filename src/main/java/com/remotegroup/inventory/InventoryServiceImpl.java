@@ -102,6 +102,15 @@ public class InventoryServiceImpl implements InventoryService{
 			throw new PartNotFoundException(id);
 		}
 	}
+
+	@Override
+	public List<Part> getPartByProduct(Long id){
+		try{
+			return partRepository.findByProductId(id);
+		}catch(Exception e) {
+			throw new PartNotFoundByProductException(id);
+		}
+	}
 	
 	@Override
 	public Long getPartSupplier(Long id) {
