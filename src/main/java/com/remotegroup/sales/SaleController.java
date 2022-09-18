@@ -3,6 +3,7 @@ package com.remotegroup.sales;
 import java.util.List;
 import java.util.function.Function;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,57 +18,38 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
 public class SaleController {
 	
-	private final SaleRepository repository;
-	SaleController(SaleRepository repository){
-		this.repository = repository;
-	}
+	@Autowired
+	SalesServiceImpl salesService;
 	
 	//use case: get all sales.
 	@GetMapping("/sales")
 	List<Sale> all() {
-	  return repository.findAll();
+		return salesService.getSales();
 	}
 	
 	//use case: create sale
 	@PostMapping("/sale")
 	Sale newSale(@RequestBody Sale sale) {
-		return repository.save(sale);
+		return salesService.createSale(sale);
 	}
 	
 
 	//use case: update sale
 	@PutMapping("/sale/{id}")
 	Sale replaceSale(@RequestBody Sale newSale, @PathVariable Long id) {
-		return repository.findById(id)
-      	.map(Sale -> {
-            Sale.setProductId(newSale.getProductId());
-            Sale.setProductName(newSale.getProductName());
-            Sale.setQuantity(newSale.getQuantity());
-            Sale.setDataTime(newSale.getDataTime());
-        return repository.save(Sale);
-      })
-      	.orElseGet(() -> {
-        	newSale.setId(id);
-        	return repository.save(newSale);
-      });
+		return salesService.updateSale(newSale, id);
 	}
 	
 	//use case: delete sale
 	@DeleteMapping("/sale/{id}")
 	void deleteSale(@PathVariable Long id) {
-		repository.deleteById(id);
+		salesService.deleteSale(id);
 	}
 	
 	//use case: get sale by id
 	@GetMapping("/sale/{id}")
 	Sale getSaleById(@PathVariable Long id) {
-		try {
-			//return repository.getReferenceById(id); This function lazy loads and causes errors, so changed to below
-			return repository.findById(id).get();
-			
-		}catch(Exception e) {
-			throw new SaleNotFoundException(id);
-		}
+		return salesService.getSale(id);
 	}
 	
 }
