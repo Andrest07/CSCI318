@@ -19,7 +19,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class SaleController {
 	
 	@Autowired
-	SalesService salesService;
+	SaleService salesService;
 	
 	//use case: get all sales.
 	@GetMapping("/sales")
@@ -28,9 +28,14 @@ public class SaleController {
 	}
 	
 	//use case: create sale
+	// CHECK INVENTORY
 	@PostMapping("/sale")
 	Sale newSale(@RequestBody Sale sale) {
-		return salesService.createSale(sale);
+		if(salesService.requestCheckInventory(sale.getItemId())) {
+			return salesService.createSale(sale);	
+		}else {
+			return null;
+		}
 	}
 	
 
