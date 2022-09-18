@@ -10,8 +10,6 @@ import javax.persistence.Id;
 public class Sale {
     protected @Id @GeneratedValue Long id;
     Long productId;
-    Long InStoreSaleId;
-    Long OnlineSaleId;
     String ProductName;
     Integer quantity;
     String DataTime;
@@ -20,8 +18,6 @@ public class Sale {
 
     Sale(Long p, Long i,  Long os, String pn, Integer q, String dt){
         productId = p;
-        InStoreSaleId = i;
-        OnlineSaleId = os;
         ProductName = pn;
         quantity = q;
         DataTime = dt;
@@ -32,14 +28,6 @@ public class Sale {
 
     public Long getProductId(){
         return this.productId;
-    }
-
-    public Long getInStoreSaleId(){
-        return this.InStoreSaleId;
-    }
-
-    public Long getOnlineSaleId(){
-        return this.OnlineSaleId;
     }
 
     public String getProductName(){
@@ -60,14 +48,6 @@ public class Sale {
 
     public void setProductId(Long pId) {
         this.productId = pId;
-    }
-
-    public void setInStoreSaleId(Long sId) {
-        this.InStoreSaleId = sId;
-    }
-
-    public void setOnlineSaleId(Long oId) {
-        this.OnlineSaleId = oId;
     }
 
     public void setProductName(String newProductName){
@@ -91,8 +71,6 @@ public class Sale {
             Sale sale = (Sale) o;
         return Objects.equals(this.id, sale.id) 
         && Objects.equals(this.productId, sale.productId)
-        && Objects.equals(this.InStoreSaleId, sale.InStoreSaleId)
-        && Objects.equals(this.OnlineSaleId, sale.OnlineSaleId)
         && Objects.equals(this.ProductName, sale.ProductName)
         && Objects.equals(this.quantity, sale.quantity)
         && Objects.equals(this.DataTime, sale.DataTime);
@@ -100,15 +78,13 @@ public class Sale {
 
     @Override
     public int hashCode() {
-        return Objects.hash(this.id, this.InStoreSaleId, this.productId, this.ProductName, this.quantity);
+        return Objects.hash(this.id, this.productId, this.ProductName, this.quantity);
     }
 
     @Override
     public String toString() {
         return "Sale{" + "id=" + this.id + '\''
         + ", product id='" + this.productId + '\'' 
-        + ", InStoreSale id='" + this.InStoreSaleId + '\'' 
-        + ", OnlineSale id='" + this.OnlineSaleId + '\'' 
         + ", ProductName='" + this.ProductName + '\''
         + ", quantity='" + this.quantity + '\''
         + ", DataTime='" + this.DataTime + '\''

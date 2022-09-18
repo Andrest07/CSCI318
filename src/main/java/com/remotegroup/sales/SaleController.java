@@ -41,8 +41,6 @@ public class SaleController {
 		return repository.findById(id)
       	.map(Sale -> {
             Sale.setProductId(newSale.getProductId());
-			Sale.setInStoreSaleId(newSale.getInStoreSaleId());
-			Sale.setOnlineSaleId(newSale.getOnlineSaleId());
             Sale.setProductName(newSale.getProductName());
             Sale.setQuantity(newSale.getQuantity());
             Sale.setDataTime(newSale.getDataTime());

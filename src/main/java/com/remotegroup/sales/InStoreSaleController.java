@@ -41,7 +41,7 @@ public class InStoreSaleController {
 		return repository.findById(id)
       	.map(InStoreSale -> {
 			InStoreSale.setStoreId(newInStoreSale.getStoreId());
-            InStoreSale.setReceipt(newInStoreSale.getReceipt());
+            InStoreSale.setReceipt(newInStoreSale.getReceiptNo());
         return repository.save(InStoreSale);
       })
       	.orElseGet(() -> {
