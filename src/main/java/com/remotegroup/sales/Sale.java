@@ -9,16 +9,16 @@ import javax.persistence.Id;
 @Entity
 public class Sale {
     protected @Id @GeneratedValue Long id;
-    Long productId;
-    String ProductName;
+    Long itemId;
+    String itemName;
     Integer quantity;
     String DataTime;
 
     Sale () {}
 
     Sale(Long p, Long i,  Long os, String pn, Integer q, String dt){
-        productId = p;
-        ProductName = pn;
+        itemId = p;
+        itemName = pn;
         quantity = q;
         DataTime = dt;
     }
@@ -26,12 +26,12 @@ public class Sale {
         return this.id;
     }
 
-    public Long getProductId(){
-        return this.productId;
+    public Long getItemId(){
+        return this.itemId;
     }
 
-    public String getProductName(){
-        return ProductName;
+    public String getItemName(){
+        return itemName;
     }
 
     public Integer getQuantity(){
@@ -46,12 +46,12 @@ public class Sale {
         this.id = id;
     }
 
-    public void setProductId(Long pId) {
-        this.productId = pId;
+    public void setItemId(Long pId) {
+        this.itemId = pId;
     }
 
-    public void setProductName(String newProductName){
-        this.ProductName = newProductName;
+    public void setItemName(String newProductName){
+        this.itemName = newProductName;
     }
 
     public void setQuantity(Integer newQuantity){
@@ -70,22 +70,22 @@ public class Sale {
             return false;
             Sale sale = (Sale) o;
         return Objects.equals(this.id, sale.id) 
-        && Objects.equals(this.productId, sale.productId)
-        && Objects.equals(this.ProductName, sale.ProductName)
+        && Objects.equals(this.itemId, sale.itemId)
+        && Objects.equals(this.itemName, sale.itemName)
         && Objects.equals(this.quantity, sale.quantity)
         && Objects.equals(this.DataTime, sale.DataTime);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(this.id, this.productId, this.ProductName, this.quantity);
+        return Objects.hash(this.id, this.itemId, this.itemName, this.quantity);
     }
 
     @Override
     public String toString() {
         return "Sale{" + "id=" + this.id + '\''
-        + ", product id='" + this.productId + '\'' 
-        + ", ProductName='" + this.ProductName + '\''
+        + ", product id='" + this.itemId + '\'' 
+        + ", ProductName='" + this.itemName + '\''
         + ", quantity='" + this.quantity + '\''
         + ", DataTime='" + this.DataTime + '\''
         + '}';

@@ -27,8 +27,8 @@ public class SalesServiceImpl implements SalesService{
 	public Sale updateSale(Sale s, Long id) {
 		return repository.findById(id)
 		      	.map(Sale -> {
-		            Sale.setProductId(s.getProductId());
-		            Sale.setProductName(s.getProductName());
+		            Sale.setItemId(s.getItemId());
+		            Sale.setItemName(s.getItemName());
 		            Sale.setQuantity(s.getQuantity());
 		            Sale.setDataTime(s.getDataTime());
 		        return repository.save(Sale);

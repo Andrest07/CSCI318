@@ -19,7 +19,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class SaleController {
 	
 	@Autowired
-	SalesServiceImpl salesService;
+	SalesService salesService;
 	
 	//use case: get all sales.
 	@GetMapping("/sales")
