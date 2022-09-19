@@ -2,6 +2,7 @@ package com.remotegroup.sales;
 
 import java.util.List;
 import java.util.function.Function;
+import java.util.Scanner;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -11,8 +12,20 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import java.awt.LayoutManager;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.remotegroup.sales.BackOrderSale;
 
 @RestController
 @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
@@ -34,7 +47,18 @@ public class SaleController {
 		if(salesService.requestCheckInventory(sale.getItemId())) {
 			return salesService.createSale(sale);	
 		}else {
-			return null;
+			int dialogButton = JOptionPane.YES_NO_OPTION;
+			int dialogResult = JOptionPane.showConfirmDialog (null, "Item is unavailable. Would you like to Back Order?","Warning", dialogButton);
+			if(dialogResult == JOptionPane.YES_OPTION) {
+				System.out.println("Phone number");
+				Scanner sc = new Scanner(System.in);
+				String pN = sc.nextLine();
+				sc.close();
+				BackOrderSale backOrderSale = new BackOrderSale(pN);
+				return salesService.createBackOrderSale(backOrderSale);
+			}else {
+				return null;
+			}
 		}
 	}
 	
@@ -56,5 +80,4 @@ public class SaleController {
 	Sale getSaleById(@PathVariable Long id) {
 		return salesService.getSale(id);
 	}
-	
-}
+};
