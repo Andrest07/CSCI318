@@ -52,7 +52,7 @@ public class PartController {
 	}
 
 	//use case: look up supplier by part
-	@GetMapping("/part/{id}")
+	@GetMapping("/part/supplier/{id}")
 	Long getPartSupplier(@PathVariable Long id) {
 		return inventoryService.getPartSupplier(id);
 	}
