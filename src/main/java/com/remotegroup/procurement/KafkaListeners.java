@@ -1,4 +1,4 @@
-package com.remotegroup.procurement;
+/*package com.remotegroup.procurement;
 
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
@@ -13,4 +13,4 @@ public class KafkaListeners {
         System.out.println("Back order received:");
         System.out.println(data);
     }
-}
+}*/

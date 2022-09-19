@@ -20,4 +20,6 @@ public interface ProcurementService {
 	public abstract Contact createContact(Contact c);
 	public abstract Contact updateContact (Contact c, Long id);
 	public abstract EntityModel<Contact> getContact(Long id);
+
+	public abstract void procurementListener(String data);
 }
