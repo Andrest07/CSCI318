@@ -1,8 +1,11 @@
 package com.remotegroup.inventory;
 
+import com.remotegroup.sales.BackOrderSale;
+
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+import org.springframework.kafka.core.KafkaTemplate;
 
 @Service
 public class InventoryServiceImpl implements InventoryService{
@@ -141,4 +144,14 @@ public class InventoryServiceImpl implements InventoryService{
 			return false;
 		}
 	}
+
+	@Override
+	public void procurementRequest(KafkaTemplate<String, Object> kafkaTemplate, BackOrderSale b) {
+		try {
+			kafkaTemplate.send("remotegroup", b);
+		}catch(Exception e) {
+			System.out.println("Back order request failed.");
+		}
+	}
 }
+
