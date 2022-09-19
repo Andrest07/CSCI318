@@ -2,6 +2,7 @@ package com.remotegroup.inventory;
 
 import com.remotegroup.sales.BackOrderSale;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -60,6 +61,24 @@ public class InventoryServiceImpl implements InventoryService{
 		}
 	}
 
+	@Override
+	public List<Part> getPartByProduct(Long id){
+		try {
+			Product p = getProduct(id);
+
+			Long[][] parts = p.getComprisingParts();
+
+			List<Part> pList = new ArrayList<Part>();
+			for(int c=0; c<parts.length; c++) {
+				Long partId = parts[c][0];
+				pList.add(getPart(partId));
+			}
+			return pList;
+		}catch(Exception e) {
+			throw new PartNotFoundByProductException(id);
+		}
+	}
+
 	
 	//================================== Parts
 	
@@ -78,7 +97,6 @@ public class InventoryServiceImpl implements InventoryService{
 		return partRepository.findById(id)
 		      	.map(Part -> {
 					Part.setSupplierId(p.getSupplierId());
-					Part.setProductId(p.getProductId());
 		            Part.setName(p.getName());
 		            Part.setDescription(p.getDescription());
 		        return partRepository.save(Part);
@@ -103,15 +121,6 @@ public class InventoryServiceImpl implements InventoryService{
 			
 		}catch(Exception e) {
 			throw new PartNotFoundException(id);
-		}
-	}
-
-	@Override
-	public List<Part> getPartByProduct(Long id){
-		try{
-			return partRepository.findByProductId(id);
-		}catch(Exception e) {
-			throw new PartNotFoundByProductException(id);
 		}
 	}
 	

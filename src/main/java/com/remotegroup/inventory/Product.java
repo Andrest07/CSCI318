@@ -17,7 +17,7 @@ public class Product {
     
     Product () {}
 
-    Product(Long i, String n, double p, String c, Long[][] comprisingParts, int s){
+    public Product(String n, double p, String c, Long[][] comprisingParts, int s){
         name = n;
         price = p;
         comment = c;

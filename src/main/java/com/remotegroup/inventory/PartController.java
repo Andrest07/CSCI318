@@ -57,10 +57,4 @@ public class PartController {
 		return inventoryService.getPartSupplier(id);
 	}
 
-	//use case: Look up all parts by product
-	@GetMapping("/product/parts/{id}")
-	List<Part> getPartByProduct(@PathVariable Long id){
-		return inventoryService.getPartByProduct(id);
-	}
-	
 }

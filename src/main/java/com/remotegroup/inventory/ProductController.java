@@ -49,6 +49,12 @@ public class ProductController {
 	Product getProductById(@PathVariable Long id) {
 		return inventoryService.getProduct(id);
 	}
+
+	//use case: Look up all parts by product
+	@GetMapping("/product/parts/{id}")
+	List<Part> getPartByProduct(@PathVariable Long id){
+		return inventoryService.getPartByProduct(id);
+	}
 	
 	@GetMapping("/product/check/{id}")
 	boolean checkInventory(@PathVariable Long itemId) {
