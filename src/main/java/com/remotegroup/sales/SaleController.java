@@ -35,20 +35,9 @@ public class SaleController {
 	Sale newSale(@RequestBody Sale sale) {
 		if(salesService.requestCheckInventory(sale.getItemId())) {
 			return salesService.createSale(sale);	
-		}/*else {
-			int dialogButton = JOptionPane.YES_NO_OPTION;
-			int dialogResult = JOptionPane.showConfirmDialog (null, "Item is unavailable. Would you like to Back Order?","Warning", dialogButton);
-			if(dialogResult == JOptionPane.YES_OPTION) {
-				System.out.println("Input phone number");
-				Scanner sc = new Scanner(System.in);
-				String pN = sc.nextLine();
-				sc.close();
-				BackOrderSale backOrderSale = new BackOrderSale(pN);
-				return salesService.createBackOrderSale(backOrderSale);
-			}*/else {
-				return null;
-			}
-		//}
+		}else {
+			return null;
+		}
 	}
 	
 
