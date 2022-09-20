@@ -1,5 +1,6 @@
 package com.remotegroup.sales;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.boot.web.client.RestTemplateBuilder;
@@ -117,6 +118,18 @@ public class SaleServiceImpl implements SaleService{
 	public void deleteInStoreSale(Long id) {
 		inStoreSaleRepository.deleteById(id);
 		
+	}
+	
+	public List<InStoreSale> lookupSalesByStore(Long storeId) {
+		List<InStoreSale> sales = inStoreSaleRepository.findAll();
+		List<InStoreSale> matches = new ArrayList<InStoreSale>();
+		for(int s = 0; s<sales.size();s++) {
+			InStoreSale sale = sales.get(s);
+			if(sale.getStoreId() == storeId) {
+				matches.add(sale);
+			}
+		}
+		return matches;
 	}
 
 	@Override

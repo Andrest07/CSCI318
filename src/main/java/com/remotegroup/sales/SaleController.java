@@ -40,7 +40,6 @@ public class SaleController {
 		}
 	}
 	
-
 	//use case: update sale
 	@PutMapping("/sale/{id}")
 	Sale replaceSale(@RequestBody Sale newSale, @PathVariable Long id) {
