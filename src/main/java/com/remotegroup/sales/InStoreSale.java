@@ -15,7 +15,7 @@ public class InStoreSale extends Sale {
     	super();
     }
 
-    InStoreSale(Long i, String n){
+    public InStoreSale(Long i, String n){
     	super();
         storeId = i;
         receiptNo = n;

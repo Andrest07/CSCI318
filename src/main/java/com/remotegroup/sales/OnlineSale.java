@@ -15,7 +15,7 @@ public class OnlineSale extends Sale {
     	super();
     }
 
-    OnlineSale(String c, String n){
+    public OnlineSale(String c, String n){
     	super();
         customerName = c;
         address = n;

@@ -14,7 +14,7 @@ public class Store {
 
 	Store (){}
 	
-	Store(String a, String m){
+	public Store(String a, String m){
 		address = a;
 		manager = m;
 	}
