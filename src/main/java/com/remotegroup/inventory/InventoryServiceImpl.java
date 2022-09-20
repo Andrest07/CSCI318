@@ -155,13 +155,15 @@ public class InventoryServiceImpl implements InventoryService{
 		}
 	}
 	
-	@Override
 	@Autowired
-	public void procurementRequest(KafkaTemplate<String, Object> kafkaTemplate, BackOrderSale b) {
+	KafkaTemplate<String, Object> kafkaTemplate;
+	
+	@Override
+	public void procurementRequest(BackOrderSale b) {
 		try {
 			kafkaTemplate.send("remotegroup", b);
 		}catch(Exception e) {
-			System.out.println("Back order request failed.");
+			
 		}
 	}
 }

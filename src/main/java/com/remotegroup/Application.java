@@ -14,7 +14,7 @@ public class Application {
 	}
 
 	@Bean
-	CommandLineRunner commandLineRunner(KafkaTemplate<String, String> kafkaTemplate) {
+	CommandLineRunner commandLineRunner(KafkaTemplate<String, Object> kafkaTemplate) {
 		return args -> {
 			kafkaTemplate.send("remotegroup", "hello kafka");
 		};
