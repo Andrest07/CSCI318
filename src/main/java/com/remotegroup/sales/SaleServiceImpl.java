@@ -7,6 +7,10 @@ import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import com.remotegroup.inventory.Product;
+import com.remotegroup.inventory.ProductNotFoundException;
+import com.remotegroup.inventory.ProductRepository;
+
 @Service
 public class SaleServiceImpl implements SaleService{
 
@@ -16,13 +20,15 @@ public class SaleServiceImpl implements SaleService{
 	private final OnlineSaleRepository onlineSaleRepository;
 	private final BackOrderSaleRepository backOrderSaleRepository;
 	private final RestTemplate restTemplate;
+	private final ProductRepository productRepository;
 	
-	SaleServiceImpl(SaleRepository saleRepository, InStoreSaleRepository i, OnlineSaleRepository o, BackOrderSaleRepository b, RestTemplateBuilder restTemplateBuilder){
+	SaleServiceImpl(SaleRepository saleRepository, InStoreSaleRepository i, OnlineSaleRepository o, BackOrderSaleRepository b, RestTemplateBuilder restTemplateBuilder, ProductRepository p){
 		this.saleRepository = saleRepository;
 		this.inStoreSaleRepository = i;
 		this.onlineSaleRepository = o;
 		this.backOrderSaleRepository = b;
 		this.restTemplate = restTemplateBuilder.build();
+		this.productRepository = p;
 	}
 	
 	@Override
@@ -198,5 +204,16 @@ public class SaleServiceImpl implements SaleService{
 		}catch(Exception e) {
 			throw new BackOrderSaleNotFoundException();
 		}
+	}
+
+	@Override
+	public Product getProductInfo(Long id) {
+		try {
+			Sale chosenSale = saleRepository.findById(id).orElseThrow(RuntimeException::new);
+			return productRepository.findById(chosenSale.itemId).get();
+		}catch(Exception e) {
+			throw new SaleNotFoundException(id);
+		}
+		
 	}
 }
