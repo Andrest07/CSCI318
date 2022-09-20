@@ -17,7 +17,7 @@ public class Sale {
 
     Sale () {}
 
-    Sale(Long p, Long i,  Long os, String pn, Integer q, String dt){
+    Sale(Long p, String pn, Integer q, String dt){
         itemId = p;
         itemName = pn;
         quantity = q;

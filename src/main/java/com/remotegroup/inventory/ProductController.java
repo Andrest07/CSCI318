@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.remotegroup.sales.BackOrderSale;
 
 @RestController
 @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
@@ -59,6 +60,12 @@ public class ProductController {
 	@GetMapping("/product/check/{id}")
 	boolean checkInventory(@PathVariable Long itemId) {
 		return inventoryService.checkInventory(itemId);
+	}
+	
+	@PostMapping("/product/request")
+	boolean makeProcurementRequest(@RequestBody BackOrderSale b) {
+		
+		return false;
 	}
 	
 }

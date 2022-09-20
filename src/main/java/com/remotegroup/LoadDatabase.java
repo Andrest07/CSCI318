@@ -1,14 +1,19 @@
-package com.remotegroup.procurement;
+package com.remotegroup;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import com.remotegroup.inventory.Product;
-import com.remotegroup.inventory.ProductRepository;
+
 import com.remotegroup.inventory.Part;
 import com.remotegroup.inventory.PartRepository;
+import com.remotegroup.inventory.Product;
+import com.remotegroup.inventory.ProductRepository;
+import com.remotegroup.procurement.Contact;
+import com.remotegroup.procurement.ContactRepository;
+import com.remotegroup.procurement.Supplier;
+import com.remotegroup.procurement.SupplierRepository;
 
 @Configuration
 class LoadDatabase {

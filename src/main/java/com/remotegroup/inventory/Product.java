@@ -12,7 +12,7 @@ public class Product {
     String name;
     double price;
     String comment;
-    Long[][] comprisingParts; // [][0] = part_id, [][1] = quantity  NOTE: MUST be >= 1 Part with number >= 1
+    Long[][] comprisingParts; // [][0] = part_id, [][1] = parts_needed  NOTE: MUST be >= 1 Part with number >= 1
     int stockQuantity;
     
     Product () {}

@@ -14,7 +14,7 @@ public class Supplier {
 
 	Supplier (){}
 	
-	Supplier(String cN, String b){
+	public Supplier(String cN, String b){
 		companyName = cN;
 		base = b;
 	}

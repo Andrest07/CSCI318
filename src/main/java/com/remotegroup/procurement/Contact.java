@@ -17,7 +17,7 @@ public class Contact {
 
     Contact () {}
 
-    Contact(Long i, String n, String p, String e, String po){
+    public Contact(Long i, String n, String p, String e, String po){
         supplierId = i;
         name = n;
         phone = p;

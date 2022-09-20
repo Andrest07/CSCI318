@@ -30,7 +30,11 @@ public class OnlineSaleController {
 	//use case: create OnlineSale
 	@PostMapping("/OnlineSale")
 	OnlineSale newOnlineSale(@RequestBody OnlineSale OnlineSale) {
-		return saleService.createSale(OnlineSale);
+		if(saleService.requestCheckInventory(OnlineSale.getItemId())) {
+			return saleService.createSale(OnlineSale);
+		}else {
+			return null;
+		}
 	}
 	
 

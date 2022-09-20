@@ -153,7 +153,7 @@ public class InventoryServiceImpl implements InventoryService{
 			return false;
 		}
 	}
-
+	
 	@Override
 	public void procurementRequest(KafkaTemplate<String, Object> kafkaTemplate, BackOrderSale b) {
 		try {
