@@ -38,10 +38,13 @@ class LoadDatabase {
       log.info("Preloading " + sRepository.save(s));
       log.info("Preloading " + cRepository.save(new Contact(s.getSupplierId(),"Jim Davis", "0408459354", "jim@email.com", "Executive")));
       Part pa1 = new Part(s.getSupplierId(), "Part1", "description", 5);
+      Part pa2 = new Part(s.getSupplierId(), "Part2", "description2", 30);
+      paRepository.save(pa1);
+      paRepository.save(pa2);
+      
       Long[][] l = {
         {pa1.getId(), (long) 5}
       };
-      paRepository.save(pa1);
       log.info("Preloading " + prRepository.save(new Product("Bike1", 4.50, "comment", l, 7)));
       log.info("Preloading " + stRepository.save(new Store("Store1", "Mike")));
       log.info("Preloading " + saRepository.save(new Sale((long)0, "Bike1", 2, "22-08-2022")));
