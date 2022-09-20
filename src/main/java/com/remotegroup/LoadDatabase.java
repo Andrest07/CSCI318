@@ -41,6 +41,7 @@ class LoadDatabase {
       Long[][] l = {
         {pa1.getId(), (long) 5}
       };
+      paRepository.save(pa1);
       log.info("Preloading " + prRepository.save(new Product("Bike1", 4.50, "comment", l, 7)));
       log.info("Preloading " + stRepository.save(new Store("Store1", "Mike")));
       log.info("Preloading " + saRepository.save(new Sale((long)0, "Bike1", 2, "22-08-2022")));
