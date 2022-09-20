@@ -33,9 +33,11 @@ public class SaleController {
 	// CHECK INVENTORY
 	@PostMapping("/sale")
 	Sale newSale(@RequestBody Sale sale) {
+		return salesService.createSale(sale);
+		/*
 		if(salesService.requestCheckInventory(sale.getItemId())) {
 			return salesService.createSale(sale);	
-		}/*else {
+		}else {
 			int dialogButton = JOptionPane.YES_NO_OPTION;
 			int dialogResult = JOptionPane.showConfirmDialog (null, "Item is unavailable. Would you like to Back Order?","Warning", dialogButton);
 			if(dialogResult == JOptionPane.YES_OPTION) {
@@ -45,13 +47,11 @@ public class SaleController {
 				sc.close();
 				BackOrderSale backOrderSale = new BackOrderSale(pN);
 				return salesService.createBackOrderSale(backOrderSale);
-			}*/else {
+			}else {
 				return null;
 			}
-		//}
+		}*/
 	}
-	
-
 	//use case: update sale
 	@PutMapping("/sale/{id}")
 	Sale replaceSale(@RequestBody Sale newSale, @PathVariable Long id) {
