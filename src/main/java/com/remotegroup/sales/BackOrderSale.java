@@ -9,15 +9,15 @@ public class BackOrderSale extends Sale {
 	private @Id @GeneratedValue Long id;
 	String phoneNumber;
 	
-	BackOrderSale(String p){
+	public BackOrderSale(String p){
 		phoneNumber = p;
 	}
 	
-	String getPhoneNumber() {
+	public String getPhoneNumber() {
 		return phoneNumber;
 	}
 	
-	void setPhoneNumber(String p){
+	public void setPhoneNumber(String p){
 		this.phoneNumber = p;
 	}
 	
