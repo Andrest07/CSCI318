@@ -58,4 +58,10 @@ public class InStoreSaleController {
 		return saleService.getInStoreSale(id);
 	}
 	
+	//use case: get InStoreSale by Store
+	@GetMapping("/InStoreSales/{storeId}")
+	List<InStoreSale> getSalesByStore(@PathVariable Long storeId){
+		return saleService.lookupSalesByStore(storeId);
+	}
+	
 }

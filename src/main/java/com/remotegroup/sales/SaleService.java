@@ -19,6 +19,7 @@ public interface SaleService {
 	public abstract InStoreSale updateSale(InStoreSale s, Long id);
 	public abstract InStoreSale getInStoreSale(Long id);
 	public abstract void deleteInStoreSale(Long id);
+	public abstract List<InStoreSale> lookupSalesByStore(Long storeId);
 	
 	public abstract List<OnlineSale> getOnlineSales();
 	public abstract OnlineSale createSale(OnlineSale s);
