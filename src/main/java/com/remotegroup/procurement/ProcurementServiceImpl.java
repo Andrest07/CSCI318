@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
-import org.springframework.kafka.annotation.KafkaListener;
+//import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -111,6 +111,7 @@ public class ProcurementServiceImpl implements ProcurementService{
 			return cAssembler.toModel(contact);
 	}
 
+	/*
 	@Override
 	@KafkaListener(
         topics = "remotegroup",
@@ -119,4 +120,5 @@ public class ProcurementServiceImpl implements ProcurementService{
         System.out.println("Back order received:");
         System.out.println(data);
     }
+    */
 }

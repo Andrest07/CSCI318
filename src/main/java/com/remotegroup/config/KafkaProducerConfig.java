@@ -1,4 +1,4 @@
-package com.remotegroup.config;
+/*package com.remotegroup.config;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -29,7 +29,7 @@ public class KafkaProducerConfig {
     public ProducerFactory<String, Object> producerFactory() {
         return new DefaultKafkaProducerFactory<>(producerConfig());
     }
-
+    
     @Bean
     public KafkaTemplate<String, Object> kafkaTemplate(
         ProducerFactory<String, Object> producerFactory
@@ -37,3 +37,4 @@ public class KafkaProducerConfig {
         return new KafkaTemplate<>(producerFactory);
     }
 }
+*/

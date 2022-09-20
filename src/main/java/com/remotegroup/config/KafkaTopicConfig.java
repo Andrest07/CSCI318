@@ -1,4 +1,4 @@
-package com.remotegroup.config;
+/*package com.remotegroup.config;
 
 import org.apache.kafka.clients.admin.NewTopic;
 import org.springframework.context.annotation.Bean;
@@ -15,3 +15,4 @@ public class KafkaTopicConfig {
 
     }
 }
+*/

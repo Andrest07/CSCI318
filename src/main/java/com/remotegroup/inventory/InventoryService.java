@@ -4,7 +4,7 @@ import com.remotegroup.sales.BackOrderSale;
 
 import java.util.List;
 
-import org.springframework.kafka.core.KafkaTemplate;
+//import org.springframework.kafka.core.KafkaTemplate;
 
 public interface InventoryService {
 	public abstract List<Product> getProducts();
@@ -22,5 +22,5 @@ public interface InventoryService {
 	public abstract Long getPartSupplier(Long id);
 	
 	public abstract boolean checkInventory(Long itemId);
-	public abstract void procurementRequest(BackOrderSale b);
+	//public abstract void procurementRequest(BackOrderSale b);
 }
