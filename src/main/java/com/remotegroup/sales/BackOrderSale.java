@@ -13,8 +13,14 @@ public class BackOrderSale extends Sale {
 		super();
 	}
 
-	public BackOrderSale(String p){
-		phoneNumber = p;
+	public BackOrderSale(Long p, String pn, Integer q, String dt, String ph){
+		super();
+
+    	this.itemId = p;
+    	this.itemName = pn;
+    	this.quantity = q;
+    	this.DataTime = dt;
+		phoneNumber = ph;
 	}
 	
 	public String getPhoneNumber() {

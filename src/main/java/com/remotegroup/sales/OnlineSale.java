@@ -15,8 +15,12 @@ public class OnlineSale extends Sale {
     	super();
     }
 
-    public OnlineSale(String c, String n){
+    public OnlineSale(Long p, String pn, Integer q, String dt, String c, String n){
     	super();
+    	this.itemId = p;
+    	this.itemName = pn;
+    	this.quantity = q;
+    	this.DataTime = dt;
         customerName = c;
         address = n;
     }

@@ -15,8 +15,12 @@ public class InStoreSale extends Sale {
     	super();
     }
 
-    public InStoreSale(Long i, String n){
+    public InStoreSale(Long p, String pn, Integer q, String dt, Long i, String n){
     	super();
+    	this.itemId = p;
+    	this.itemName = pn;
+    	this.quantity = q;
+    	this.DataTime = dt;
         storeId = i;
         receiptNo = n;
     }

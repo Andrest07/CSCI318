@@ -45,12 +45,14 @@ class LoadDatabase {
       Long[][] l = {
         {pa1.getId(), (long) 5}
       };
+      Store store = new Store("Store1", "Mike");
+      
       log.info("Preloading " + prRepository.save(new Product("Bike1", 4.50, "comment", l, 7)));
-      log.info("Preloading " + stRepository.save(new Store("Store1", "Mike")));
+      log.info("Preloading " + stRepository.save(store));
       log.info("Preloading " + saRepository.save(new Sale((long)0, "Bike1", 2, "22-08-2022")));
-      log.info("Preloading " + iRepository.save(new InStoreSale((long)0, "R-0")));
-      log.info("Preloading " + oRepository.save(new OnlineSale("John", "Antarctica")));
-      log.info("Preloading " + bRepository.save(new BackOrderSale("+61134564351")));
+      log.info("Preloading " + iRepository.save(new InStoreSale((long)0, "Bike1", 2, "22-08-2022", store.getStoreId(), "R-0")));
+      log.info("Preloading " + oRepository.save(new OnlineSale((long)0, "Bike1", 2, "22-08-2022", "John", "Antarctica")));
+      log.info("Preloading " + bRepository.save(new BackOrderSale((long)0, "Bike1", 2, "22-08-2022", "+61134564351")));
     };
   }
 }
