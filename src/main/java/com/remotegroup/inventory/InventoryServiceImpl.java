@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 
 @Service
@@ -155,6 +156,7 @@ public class InventoryServiceImpl implements InventoryService{
 	}
 	
 	@Override
+	@Autowired
 	public void procurementRequest(KafkaTemplate<String, Object> kafkaTemplate, BackOrderSale b) {
 		try {
 			kafkaTemplate.send("remotegroup", b);
