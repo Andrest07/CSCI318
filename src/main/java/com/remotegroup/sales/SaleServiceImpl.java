@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.remotegroup.inventory.Product;
+import com.remotegroup.inventory.ProductNotFoundException;
 import com.remotegroup.inventory.ProductRepository;
 
 @Service
@@ -193,7 +194,13 @@ public class SaleServiceImpl implements SaleService{
 	}
 
 	@Override
-	public Product getProductInfo(Sale s) {
-		return productRepository.findById(s.itemId).get();
+	public Product getProductInfo(Long id) {
+		try {
+			Sale chosenSale = saleRepository.findById(id).orElseThrow(RuntimeException::new);
+			return productRepository.findById(chosenSale.itemId).get();
+		}catch(Exception e) {
+			throw new SaleNotFoundException(id);
+		}
+		
 	}
 }

@@ -31,5 +31,5 @@ public interface SaleService {
 	public abstract void deleteBackOrderSale(Long id);
 	public abstract BackOrderSale getBackOrderSale(Long id) throws BackOrderSaleNotFoundException;
 
-	public abstract Product getProductInfo(Sale s);
+	public abstract Product getProductInfo(Long id);
 }

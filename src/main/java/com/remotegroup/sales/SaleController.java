@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.swing.JOptionPane;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.remotegroup.inventory.Product;
 
 @RestController
 @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
@@ -57,5 +58,12 @@ public class SaleController {
 	@GetMapping("/sale/{id}")
 	Sale getSaleById(@PathVariable Long id) {
 		return salesService.getSale(id);
+	}
+
+	//use case get product by id
+	//use case: get sale by id
+	@GetMapping("/sale/product/{id}")
+	Product getProductInfo(@PathVariable Long id) {
+		return salesService.getProductInfo(id);
 	}
 };
