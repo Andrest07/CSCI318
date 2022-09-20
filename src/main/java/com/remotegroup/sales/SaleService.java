@@ -2,6 +2,8 @@ package com.remotegroup.sales;
 
 import java.util.List;
 
+import com.remotegroup.inventory.Product;
+
 public interface SaleService {
 	
 	//expose Sale endpoints
@@ -28,4 +30,6 @@ public interface SaleService {
 	public abstract BackOrderSale createBackOrderSale(BackOrderSale s);
 	public abstract void deleteBackOrderSale(Long id);
 	public abstract BackOrderSale getBackOrderSale(Long id) throws BackOrderSaleNotFoundException;
+
+	public abstract Product getProductInfo(Sale s);
 }
