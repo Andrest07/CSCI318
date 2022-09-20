@@ -28,8 +28,7 @@ class LoadDatabase {
       log.info("Preloading " + sRepository.save(s));
       log.info("Preloading " + cRepository.save(new Contact(s.getSupplierId(),"Jim Davis", "0408459354", "jim@email.com", "Executive")));
       Part pa1 = new Part(s.getSupplierId(), "name", "description", 5);
-      Long[][] l = {
-        {(long) 0}, 
+      Long[][] l = { 
         {pa1.getId(), (long) 5}
       };
       log.info("Preloading " + prRepository.save(new Product("name", 4.50, "comment", l, 7)));
