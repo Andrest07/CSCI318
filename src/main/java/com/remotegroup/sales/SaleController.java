@@ -59,8 +59,7 @@ public class SaleController {
 		return salesService.getSale(id);
 	}
 
-	//use case get product by id
-	//use case: get sale by id
+	//use case: get product by id
 	@GetMapping("/sale/product/{id}")
 	Product getProductInfo(@PathVariable Long id) {
 		return salesService.getProductInfo(id);

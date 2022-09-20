@@ -210,7 +210,7 @@ public class SaleServiceImpl implements SaleService{
 	public Product getProductInfo(Long id) {
 		try {
 			Sale chosenSale = saleRepository.findById(id).orElseThrow(RuntimeException::new);
-			return productRepository.findById(chosenSale.itemId).get();
+			return productRepository.findById(chosenSale.getItemId()).get();
 		}catch(Exception e) {
 			throw new SaleNotFoundException(id);
 		}
