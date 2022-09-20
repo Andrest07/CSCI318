@@ -9,6 +9,10 @@ public class BackOrderSale extends Sale {
 	private @Id @GeneratedValue Long id;
 	String phoneNumber;
 	
+	BackOrderSale(){
+		super();
+	}
+
 	public BackOrderSale(String p){
 		phoneNumber = p;
 	}
