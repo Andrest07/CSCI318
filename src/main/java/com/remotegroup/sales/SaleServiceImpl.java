@@ -75,7 +75,7 @@ public class SaleServiceImpl implements SaleService{
 	// Communicate with Inventory Service via REST
 	@Override
 	public boolean requestCheckInventory(Long itemId){
-		String url = "localhost:8080/product/check/"+itemId;
+		String url = "http://localhost:8080/product/check/"+itemId;
 		return this.restTemplate.getForObject(url, boolean.class);
 	}
 
