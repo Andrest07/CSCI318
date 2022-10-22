@@ -1,10 +1,10 @@
-package com.remotegroup.businessintellegence;
+package com.remotegroup.businessintelligence;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class BusinessintellegenceApplicationTests {
+class BusinessintelligenceApplicationTests {
 
 	@Test
 	void contextLoads() {
