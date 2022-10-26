@@ -1,4 +1,4 @@
-/*package com.remotegroup;
+package com.remotegroup;
 
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,4 +18,4 @@ public class Controller {
     public void publish(@RequestBody Request request) {
         kafkaTemplate.send("remotegroup", request.message());
     }
-}*/
+}

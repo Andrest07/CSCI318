@@ -22,5 +22,5 @@ public interface InventoryService {
 	public abstract Long getPartSupplier(Long id);
 	
 	public abstract boolean checkInventory(Long itemId);
-	//public abstract void procurementRequest(BackOrderSale b);
+	public abstract void procurementRequest(BackOrderSale b);
 }

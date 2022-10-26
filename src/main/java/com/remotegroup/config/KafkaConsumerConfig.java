@@ -1,4 +1,4 @@
-/*package com.remotegroup.config;
+package com.remotegroup.config;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -42,4 +42,4 @@ public class KafkaConsumerConfig {
         factory.setConsumerFactory((consumerFactory()));
         return factory;
     }
-}*/
+}

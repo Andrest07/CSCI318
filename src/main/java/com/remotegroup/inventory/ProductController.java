@@ -64,7 +64,7 @@ public class ProductController {
 	
 	@PostMapping("/product/request")
 	boolean makeProcurementRequest(@RequestBody BackOrderSale b) {
-		//inventoryService.procurementRequest(b);
+		inventoryService.procurementRequest(b);
 		return true;
 	}
 	

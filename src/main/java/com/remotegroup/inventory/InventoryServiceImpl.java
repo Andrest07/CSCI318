@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.kafka.core.KafkaTemplate;
 
 @Service
 public class InventoryServiceImpl implements InventoryService{
@@ -155,7 +155,7 @@ public class InventoryServiceImpl implements InventoryService{
 		}
 	}
 	
-	/*
+	
 	@Autowired
 	KafkaTemplate<String, Object> kafkaTemplate;
 	
@@ -166,6 +166,6 @@ public class InventoryServiceImpl implements InventoryService{
 		}catch(Exception e) {
 			
 		}
-	}*/
+	}
 }
 

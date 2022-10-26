@@ -21,5 +21,5 @@ public interface ProcurementService {
 	public abstract Contact updateContact (Contact c, Long id);
 	public abstract EntityModel<Contact> getContact(Long id);
 
-	//public abstract void procurementListener(String data);
+	public abstract void procurementListener(String data);
 }
