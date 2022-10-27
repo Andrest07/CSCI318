@@ -33,7 +33,7 @@ public class BusinessIntillgence {
     	return this.price;
     }
 
-    public int getTotal() {
+    public double getTotal() {
     	return this.total;
     }
     
