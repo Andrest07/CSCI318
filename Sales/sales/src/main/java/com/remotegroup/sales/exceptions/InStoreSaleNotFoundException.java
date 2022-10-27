@@ -1,4 +1,4 @@
-package com.remotegroup.sales;
+package com.remotegroup.sales.exceptions;
 
 public class InStoreSaleNotFoundException extends RuntimeException {
 	InStoreSaleNotFoundException(Long id){

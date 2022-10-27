@@ -1,4 +1,4 @@
-package com.remotegroup.sales;
+package com.remotegroup.sales.service;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.remotegroup.sales;
+package com.remotegroup.sales.backordersale.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

@@ -1,4 +1,4 @@
-package com.remotegroup.sales;
+package com.remotegroup.sales.store.controller;
 
 import java.util.List;
 import java.util.function.Function;

@@ -1,4 +1,4 @@
-package com.remotegroup.sales;
+package com.remotegroup.sales.onlinesale.persistence;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

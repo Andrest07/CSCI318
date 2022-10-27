@@ -1,4 +1,4 @@
-package com.remotegroup.sales;
+package com.remotegroup.sales.sale.domain;
 
 import java.util.Objects;
 
