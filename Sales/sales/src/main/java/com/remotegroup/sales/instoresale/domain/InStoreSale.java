@@ -1,5 +1,7 @@
 package com.remotegroup.sales.instoresale.domain;
 
+import com.remotegroup.sales.sale.*;
+
 import java.util.Objects;
 
 import javax.persistence.Entity;
